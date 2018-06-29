@@ -22,7 +22,7 @@
         {% for cliente in clientes %}
         <tr>
             <td>{{ cliente.id }}</td>
-            <td><a href="">{{ cliente.nome }}</a></td>
+            <td><a href="{{ path('visualizar_cliente', {'id': cliente.id}) }}">{{ cliente.nome }}</a></td>
             <td>{{ cliente.email }}</td>
         </tr>
         {% else %}

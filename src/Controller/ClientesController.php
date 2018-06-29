@@ -6,6 +6,7 @@ use App\Entity\Cliente;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\VarDumper\VarDumper;
 
 class ClientesController extends Controller
 {
@@ -20,6 +21,19 @@ class ClientesController extends Controller
 
         return [
             'clientes' => $clientes
+        ];
+    }
+
+    /**
+     * @Route("/cliente/visualizar/{id}", name="visualizar_cliente")
+     * @Template("clientes/view.html.twig")
+     * @param Cliente $cliente
+     * @return array
+     */
+    public function view(Cliente $cliente)
+    {
+        return [
+            'cliente' => $cliente
         ];
     }
 }

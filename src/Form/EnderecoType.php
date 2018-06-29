@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use App\Entity\Endereco;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -40,6 +41,7 @@ class EnderecoType extends AbstractType
     {
         $resolver->setDefaults([
             // Configure your form options here
+            'data_class' => Endereco::class,
         ]);
     }
 }

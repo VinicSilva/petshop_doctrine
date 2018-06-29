@@ -25,7 +25,7 @@ class ClientesController extends Controller
     }
 
     /**
-     * @Route("/cliente/visualizar/{id}", name="visualizar_cliente")
+     * @Route("/clientes/visualizar/{id}", name="visualizar_cliente")
      * @Template("clientes/view.html.twig")
      * @param Cliente $cliente
      * @return array

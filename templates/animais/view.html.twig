@@ -18,7 +18,7 @@
         </tr>
         <tr>
             <th>Data de Nascimento</th>
-            <td>{{ animal.dataNascimento }}</td>
+            <td>{{ animal.dataNascimento|date('d/m/Y') }}</td>
         </tr>
     </table>
 {% endblock %}

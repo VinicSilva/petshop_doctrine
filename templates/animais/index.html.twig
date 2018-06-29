@@ -3,11 +3,27 @@
 {% block title %}Listagem de animais - {% endblock %}
 
 {% block body %}
+    {% for flashMessage in app.session.flashbag.get('success') %}
+        <div class="alert alert-success">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+    {% for flashMessage in app.session.flashbag.get('warning') %}
+        <div class="alert alert-warning">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+    {% for flashMessage in app.session.flashbag.get('danger') %}
+        <div class="alert alert-danger">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+
     <h1>Listagem de animais</h1>
     <hr>
     <div class="row">
         <div class="col-md-12">
-            <a href="" class="btn btn-primary pull-right">Cadastrar Animal</a>
+            <a href="{{ path('cadastrar_animal') }}" class="btn btn-primary pull-right">Cadastrar Animal</a>
         </div>
     </div>
     <table class="table table-hover table-striped mt-3">
@@ -23,7 +39,7 @@
             <tr>
                 <td>{{ animal.id }}</td>
                 <td><a href="{{ path('visualizar_animal', {'id': animal.id}) }}">{{ animal.nome }}</a></td>
-                <td>{{ animal.dataNascimento }}</td>
+                <td>{{ animal.dataNascimento|date('d/m/Y') }}</td>
             </tr>
         {% else %}
             <tr>

@@ -48,7 +48,7 @@ class AnimaisController extends Controller
         $form = $this->createForm(AnimalType::class, $animal);
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()){
+        if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($animal);
             $em->flush();

@@ -42,7 +42,8 @@ class Cliente
 
     /**
      * @var object
-     * @ORM\ManyToMany(targetEntity="App\Entity\Animal", inversedBy="id")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Animal", inversedBy="cliente")
+     * @ORM\JoinTable(name="animal_cliente")
      */
     private $animal;
 
@@ -116,5 +117,24 @@ class Cliente
         $this->endereco = $endereco;
         return $this;
     }
+
+    /**
+     * @return object
+     */
+    public function getAnimal()
+    {
+        return $this->animal;
+    }
+
+    /**
+     * @param object $animal
+     * @return Cliente
+     */
+    public function setAnimal($animal)
+    {
+        $this->animal = $animal;
+        return $this;
+    }
+
 
 }

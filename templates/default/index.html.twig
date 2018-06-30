@@ -5,4 +5,26 @@
         <h1 class="display-1">Petshop</h1>
         <p class="lead">Avançando com symfony 4, aperfeiçoando doctrine.</p>
     </div>
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table table-striped">
+                {% for qtdAnimal in qtdAnimais %}
+                    <tr>
+                        <th>{{ qtdAnimal.nome }}</th>
+                        <td>{{ qtdAnimal.qtd_animais }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <div class="col-md-6">
+            <table class="table table-striped">
+                {% for qtdRaca in qtdRacas %}
+                    <tr>
+                        <th>{{ qtdRaca.nome }}</th>
+                        <td>{{ qtdRaca.qtds }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
 {% endblock %}

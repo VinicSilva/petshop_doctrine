@@ -19,32 +19,11 @@ class ClienteRepository extends ServiceEntityRepository
         parent::__construct($registry, Cliente::class);
     }
 
-//    /**
-//     * @return Cliente[] Returns an array of Cliente objects
-//     */
-    /*
-    public function findByExampleField($value)
+    public function qtdAnimaisPorCliente()
     {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('c.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+        $sql = "SELECT COUNT(ac.animal_id) as qtd_animais, c.nome FROM animal_cliente ac
+                INNER JOIN cliente c ON c.id = ac.cliente_id GROUP BY c.nome";
 
-    /*
-    public function findOneBySomeField($value): ?Cliente
-    {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        return $this->getEntityManager()->getConnection()->executeQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
     }
-    */
 }
